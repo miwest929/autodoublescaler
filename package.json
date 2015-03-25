@@ -1,0 +1,13 @@
+{
+  "name": "autodoublescaler",
+  "version": "0.0.1",
+  "private": "true",
+  "dependencies": {
+    "express": "~4.1.1",
+    "jade": "~0.31.2",
+    "method-override": "^1.0.0",
+    "morgan": "^1.0.0",
+    "js-yaml": "*",
+    "body-parser": "*"
+  }
+}
