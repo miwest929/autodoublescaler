@@ -15,17 +15,41 @@ angular.module('autodoublescaler', [
   'autodoublescaler.services',
   'autodoublescaler.directives',
 ]).
+run(function($rootScope) {
+  $rootScope.D3_SVG = {
+    createSVG: function(width, height) {
+      return d3.select('#svg_container')
+        .append('svg')
+        .attr('width', width)
+        .attr('height', height);
+    },
+    createYAxis: function(height) {
+      var y = d3.scale.linear()
+                .domain([0, 500])
+                .range([height, 20]);
+
+      return d3.svg.axis()
+                   .scale(y)
+                   .orient("left")
+                   .ticks(25);
+    },
+    createXAxis: function(width) {
+      var x = d3.scale.linear()
+                .domain([0, 600])
+                .range([0, width]);
+
+      return d3.svg.axis()
+                   .scale(x)
+                   .orient("bottom")
+                   .ticks(40);
+    }
+  }
+}).
 config(function ($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
 
   $stateProvider.state('home', {
     templateUrl: '/',
     controller: 'HomeCtrl'
-  }).
-  // This is an example state. Please replace with one that makes sense for your application
-  state('example-state', {
-    url: '/example/:name',
-    templateUrl: '/example',
-    controller: 'ExampleCtrl'
   });
 });

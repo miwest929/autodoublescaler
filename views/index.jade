@@ -4,6 +4,12 @@ block body
   div(ng-controller='HomeCtrl')
     div.container
       div(ui-view)
+      div.svg_container(ng-mousedown='startDraw($event)')
+      div.form-group
+        button(type='submit', ng-click='clearGraph()').btn.btn-primary
+          | Clear
+        button(type='submit', ng-click='performTest()').btn.btn-primary
+          | Execute
 
   script(src='js/lib/angular/angular.js')
   script(src='http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.min.js')
