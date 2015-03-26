@@ -18,6 +18,7 @@ angular.module('autodoublescaler', [
 run(function($rootScope) {
   $rootScope.D3_SVG = {
     createSVG: function(width, height) {
+      console.log("Inside createSVG");
       return d3.select('#svg_container')
         .append('svg')
         .attr('width', width)

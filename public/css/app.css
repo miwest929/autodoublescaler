@@ -1,14 +1,9 @@
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
+.axis path, .axis line {
+  fill: none;
+  stroke: #fff;
 }
 
-.menu:before {
-  content: "[";
-}
-
-.menu:after {
-  content: "]";
+svg {
+  font: 10px sans-serif;
+  shape-rendering: crispEdges;
 }

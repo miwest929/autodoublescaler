@@ -22,6 +22,7 @@ autodoublescaler.controller('HomeCtrl', function ($scope, $http, $state) {
   var lineData = initLineData();
 
   $scope.svg = $scope.D3_SVG.createSVG($scope.width + $scope.padding, $scope.height + $scope.padding);
+  console.log($scope.svg);
   $scope.yAxis = $scope.D3_SVG.createYAxis($scope.height - $scope.graphY);
   $scope.xAxis = $scope.D3_SVG.createXAxis($scope.width - $scope.graphY);
 
@@ -51,6 +52,7 @@ autodoublescaler.controller('HomeCtrl', function ($scope, $http, $state) {
       .attr("fill", "none");
 
   $scope.startDraw = function(e) {
+    console.log("Inside startDraw");
     if (e.clientX > $scope.maxRight) {
       var target = e.target;
       var realX = e.clientX - target.getBoundingClientRect().left - target.clientLeft + target.scrollLeft
