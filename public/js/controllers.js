@@ -82,15 +82,17 @@ autodoublescaler.controller('HomeCtrl', function ($scope, $http, $state) {
     var pathLen = $scope.path.node().getTotalLength();
     var partCount = 600;
 
-    plan = [];
-    for(part = 0; part < partCount; part++) {
+    var plan = [];
+    for(var part = 0; part < partCount; part++) {
       var pt = $scope.path.node().getPointAtLength((part / partCount) * pathLen);
       plan[ Math.ceil(pt.x - 20) ] = Math.floor($scope.height - pt.y);
       console.log("At " + Math.ceil(pt.x - 20) + "s perform " + Math.floor($scope.height - pt.y) + " rps");
     }
 
-    PerfPlan.postPerfPlan(plan, function(data, status) {
-      console.log(data);
-    });
+    $http.defaults.headers.put['Content-Type'] = 'application/json';
+    $http({method: 'post', url: '/api/perfplan', data: {'data': plan}})
+      .success( function(data, status, headers, config) { console.log(data + " : " + status); })
+      .error( function(data, status, headers, config) { console.log(data + " : " + status); });
+    //});
   };
 });

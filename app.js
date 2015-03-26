@@ -34,9 +34,9 @@ app.get('/', function(request, response) {
 });
 
 // JSON API
-// app.get('/api/req', function(request, response) {
-//   response.json({message: "Hi the Express server!"});
-// });
+app.post('/api/perfplan', function(request, response) {
+  response.json({message: "Hi the Express server!"});
+});
 
 app.get('*', function(request, response) {
   response.render('index');
