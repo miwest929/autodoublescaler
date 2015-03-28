@@ -36,6 +36,9 @@ app.get('/', function(request, response) {
 // JSON API
 
 // Take a performance plan and generate a Gatling scenario out of it
+// Gatling will run the performance simulation. Listen to an SNS topic of AutoScaling events
+// And report back to UI of any such events. This way the user can easily tell if their autoscaling rules
+// are effective.
 app.post('/api/perfplan', function(request, response) {
   response.json({message: "Hi the Express server!"});
 });
