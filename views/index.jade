@@ -5,10 +5,14 @@ block body
     div.container
       div(id='svg_container', ng-mousedown='startDraw($event)')
       div.form-group
-        button(type='submit', ng-click='clearGraph()').btn.btn-primary
-          | Clear
-        button(type='submit', ng-click='performTest()').btn.btn-primary
-          | Execute
+        div.input-group
+          button(type='submit', ng-click='clearGraph()').btn.btn-primary
+            | Clear
+        div(style='float: right').input-group
+          input(type='text', placeholder='Search for...').form-control
+          span.input-group-btn
+          button(type='submit', ng-click='performTest()').btn.btn-primary
+            | Execute
       div(ui-view)
 
   script(src='js/lib/angular/angular.js')

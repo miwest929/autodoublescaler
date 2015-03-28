@@ -34,6 +34,8 @@ app.get('/', function(request, response) {
 });
 
 // JSON API
+
+// Take a performance plan and generate a Gatling scenario out of it
 app.post('/api/perfplan', function(request, response) {
   response.json({message: "Hi the Express server!"});
 });
